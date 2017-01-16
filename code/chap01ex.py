@@ -21,6 +21,37 @@ def main(script):
     """
     print('%s: All tests passed.' % script)
 
+def CleanFemResp(df):
+    """Recodes variables from the pregnancy frame.
+
+    df: DataFrame
+    """
+    # replace 'not ascertained', 'refused', 'don't know' with NaN
+    na_vals = [97, 98, 99]
+# replace 'not ascertained', 'refused', 'don't know' with NaN
+    na_vals = [97, 98, 99]
+    df.pregnum.replace(na_vals, np.nan, inplace=True)
+    
+def ReadFemResp(dct_file='2002FemResp.dct',dat_file='2002FemResp.dat.gz'):
+	dct = thinkstats2.ReadStataDct(dct_file)
+	df = dct.ReadFixedWidth(dat_file, compression='gzip')
+	CleanFemResp(df)
+	return df
+
+def ValidatePregnum():
+	resp = ReadFemResp()
+	print(resp.pregnum.value_counts().sort_index())
+	preg = nsfg.ReadFemPreg()
+	preg_map = nsfg.MakePregMap(preg)
+	
+	for index, pregnum in resp.pregnum.iteritems():
+		caseid = resp.caseid[index]
+		caseid_indices = preg_map[caseid]
+
+		if pregnum != len(caseid_indices):
+			return False
+	
+	return True	
 
 if __name__ == '__main__':
-    main(*sys.argv)
+    print(ValidatePregnum())
