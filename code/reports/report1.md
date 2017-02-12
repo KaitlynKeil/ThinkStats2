@@ -1,4 +1,7 @@
 #Rich or Poor: To Whom does it Matter More?
+######by Kaitlyn Keil
+
+######February 12, 2017
 
 Despite having more money than can be reasonably used in a lifetime, the most wealthy are usually portrayed as
 vehement opposers of taxes. Some of the stories involve enough tax evasion and questionable business practices
