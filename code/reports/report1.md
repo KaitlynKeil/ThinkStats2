@@ -57,10 +57,14 @@ We can look at the CDFs for the different income groups to visualize this differ
 (https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/wealthyCDFs.png)
 
 With the way this survey was posed, low numbers mean the person cares more about the given value. Thus, this figure
-shows the gap between high and low income, with a median difference of an entire point.
+shows the tendency for the wealthy to respond with a lower number (a median of 4, or 'a little like me') than the low-income group
+(a median of 5, 'not like me') gap between high and low income, with a median difference of an entire point. The others, or 
+middle-income group, sit between the two values, as might be expected. This does suggest a significant difference between the 
+income brackets.
 
-This is in contrast to what the different income groups tend to think of other values. For example, when the same 
-process is performed based on the value of equality, we get a much different figure:
+And it's not just that the wealthy are more passionate in general. For example, when asked about equality, we get a much different
+figure, where any difference between the groups is nominal at best, and both mean and median are virtually identical across
+ (about 2 for both):
 
 ![Image of EqualityCDF]
 (https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/equalityCDFs.png)
@@ -69,8 +73,9 @@ Not only is the mean response for all three groups lower, but the differences be
 as well, lending a hopeful note that maybe we do care about equality in the world more than material wealth.
 
 In fact, with a sampling of the human values enquired about on this survey, we find that wealth is, in fact, the lowest
-ranked across Europe, as we can see here, where the mean response for each value is bordered by its standard deviation
-in answer:
+ranked across Europe, as we can see here, where the mean response for each value is bordered by its standard deviation. The
+standard response deviation seems to stay within approximately 1 and 1.5, but the means for all (except, of course, wealth) are
+below 3, or 'like me'.
 
 ![Image of allvaluesplot]
 (https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/allvaluesplot.png)
