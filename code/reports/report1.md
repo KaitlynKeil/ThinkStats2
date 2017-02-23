@@ -18,11 +18,11 @@ To answer these queries, I used the code that can be found in [this IPython Note
 
 >She/he thinks it is important that every person in the world should be treated equally. She/he believes everyone should have equal opportunities in life. 
 
-with the scale ranging from 1 (very much like me) to 6 (not at all like me). After filtering out the responses from everyone who refused to answer, was unsure, or had a value not in the range of 1-6, I used the entire dataset across all the European countries surveyed. At first, I broke them up according to income bracket. If they fell into the 10th percentile (top 10% of income), they became 'wealthy'. If they fell in the 3rd percentile or less (30% and below), I classified them as 'low income'. The rest fell into the general category of 'other' or 'medium' income.
+with the scale ranging from 1 (very much like me) to 6 (not at all like me). After filtering out the responses from everyone who refused to answer, was unsure, or had a value not in the range of 1-6, I used the entire dataset across all the European countries surveyed. At first, I broke them up according to income bracket. If they fell into the 10th percentile (top 10% of income), they became 'wealthy'. If they fell in the 3rd percentile or less (30% and below), I classified them as 'low income'. The rest fell into the general category of 'other' or 'medium' income. As a quick note, these income percentiles are country-dependent; the 10th percentile for someone in Hungary would indicate $963.10 per month, whereas in Switzerland, 10th percentile indicates $5,453.41 per month (converted to USD for ease of comparison). As an additional note, different countries reported annual or monthly according to their own discretion, making general 'income bracket' the easiest comparision method.
 
 I also eventually broke them up according to country, in order to do a quick, surface analysis of the different countries.
 
-To visualize the data, I chose to use CDFs (cumulative distribution functions) to easily see the medians and percentiles. However, given the 6-point scale, this initially returned blocky step functions which were difficult to interpret at a glance and not representative of those who may have felt themselves at a 3.5 rather than a 4. To account for this, I jittered the data when producing the CDFs with a range of 0.5, smoothing out the curves.
+To visualize the data, I chose to use CDFs (cumulative distribution functions) to easily see the medians and percentiles. However, given the 6-point scale, this initially returned blocky step functions which were difficult to interpret at a glance and not representative of those who may have felt themselves at a 3.5 rather than a 4. To account for this, I jittered the data when producing the CDFs with a range of 0.5, smoothing out the curves. The unjittered CDFs of wealth and equality can be seen in the [IPython Notebook](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/report1.ipynb).
 
 I also made a few plots which are represented by the mean and a range showing the standard deviation to either side. This lets us compare different values (creativity to equality, for example) in another fashion.
 
@@ -51,9 +51,9 @@ In fact, with a sampling of the human values enquired about on this survey, we f
 
 It should be noted, however, that these are self-reported values, and it feels better to say "Of course I care about equality" than it does "Ah yes, money is my everything." Unfortunately, there isn't a clear way to measure how strong this bias is, one way or another, so we'll have to hope that the respondees were as honest with themselves as they could be.
 
-As a final note, there is significant variation between countries.
+As a final note, there is distinct variation between countries.
 
 ![Image of countriesValues]
 (https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/countrywealthplot.png)
 
-When a similar mean/standard deviation plot was spread across the countries surveyed, the country that reported caring most about wealth (Hungary) was signficantly high than that which cared least (France). So perhaps greed depends more on how you grew up than how much money you have... but that's a different question all together.
+When a similar mean/standard deviation plot was spread across the countries surveyed, the country that reported caring most about wealth (Hungary) was signficantly higher than that which cared least (France), with a Cohen Effect size of 1.07. In other words, the French report caring less about wealth by an entire standard deviation, where the STD is the average of the two. Looking at the average income for the countries does not suggest a strong relationship between high average income (such as Switzterland, CH) and caring more or less about wealth, as France (Fr) likewise as a high average income, yet the two are very separate. This continues across the income differences. So perhaps greed depends more on how you grew up than how much money you have... but that's a different question all together.
