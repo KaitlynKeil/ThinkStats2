@@ -1,3 +1,5 @@
+### First Read
+
 Using the European Social Survey, Kevin looked into whether being more politically informed
 meant that a person would tend towards being more liberal. The survey was from 2010. To quantify
 this, he looked at how much time the respondent spent watching TV on politics and current affairs
@@ -20,3 +22,8 @@ to me, since it felt like it assumed the news would inherently lean liberal.
 
 It might have been nice to have a bit more analysis on how much more polarized the edges were and some possible explanation for the effect,
 but for a first report, it was fine without that. Nice job!
+
+
+### After Revisions
+
+Kevin took the changes I suggested to heart and, in my opinion, vastly improved his report. He focused the analysis on his questions, formatted things more neatly, and worked on interpretation of results instead of somewhat-related analysis of other questions. The PMF could probably have used a mention of the tendency towards moderate responses for both, but it was still an effective report.
