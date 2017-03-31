@@ -11,7 +11,7 @@ To answer my first question (what percentage receive treatment), I took those wh
 
 Even with this amount of self-awareness, slightly less than 17% had received treatment at the time of the survey.
 
-The next step was to look at how old the respondents were when they first received treatment. Using the data from those who had already received treatment to produce a survival curve (how long did the person live before treatment) as well as those who reported an alcohol problem in the past year (thus still need treatment) resulted in Figure 1 through Kaplan-Meier estimation. At over 80 years of age, more than 20% of people still have not received any sort of treatment for alcohol, despite an apparent need.
+The next step was to look at how old the respondents were when they first received treatment. Using the data from those who had already received treatment to produce a survival curve (how long did the person live before treatment) as well as those who reported an alcohol problem in the past year (thus still need treatment) resulted in Figure 1 through Kaplan-Meier estimation. As a note, where age was not reported or calculable for a respondant, I resampled the other ages within that category in order to not loose numbers in the analysis. Because of this, these are all approximations. At over 80 years of age, more than 20% of people still have not received any sort of treatment for alcohol, despite an apparent need.
 
 ![Treatment SF](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/treatmentSF.png)
 
@@ -39,6 +39,6 @@ The age at which someone started drinking alcohol also may have some sort of eff
 
 These results could suggest that an outside influence interferring is one of the primary causes of treatment, such as parents with a minor, or a judge for a DUI.
 
-However, there are a few issues as well. The first is with the percentage. Unfortunately, only those reporting alcohol problems within the past year were recorded. This percentage, therefore, is likely higher, as those who have undergone treatment and overcome their dependency or abuse are not represented. Also not captured in the survival curves is anyone who had an alcohol problem, but overcame it without the assistance of treatment.
+However, there are a few issues as well. The first is with the percentage. Unfortunately, only those reporting alcohol problems within the past year were recorded. This percentage, therefore, is likely higher, as those who have undergone treatment and overcome their dependency or abuse are not represented. Also not captured in the survival curves is anyone who had an alcohol problem, but overcame it without the assistance of treatment. Finally, the curves are generated with a resampling of ages for those who did not respond with the necessary values to find their age. Because of this, the data is an approximation, rather than being exact.
 
 Despite these issues, it seems as though even our numerous methods of treatment aren't enough to capture all those who do need help with their addiction. Particularly if the best way to get someone to treatment is outside influence, perhaps we need more voices encouraging and taking the shame from needing help, rather than more options.
