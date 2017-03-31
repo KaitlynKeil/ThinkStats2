@@ -7,27 +7,33 @@ Alcohol is no small part of our culture. It features in our movies, our stories,
 
 The [National Survey on Drug Use and Health (NSDUH)](http://www.icpsr.umich.edu/icpsrweb/ICPSR/series/64) provides some of the data needed to approximate the answers to these questions. The most recent results from this annual survey were from 2014, which is what I used to look into this question. The Jupyter Notebook I used to analyze the data can be found [here](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/report2.ipynb).
 
-To answer my first question (what percentage receive treatment), I took those who were recorded as having struggled with dependency or abuse in the past year and found the percentage who had received treatment from these. The definition of dependency in this context can be found [here](http://www.icpsr.umich.edu/icpsrweb/ICPSR/ssvd/studies/36361/datasets/0001/variables/DEPNDALC?q=DEPNDALC), and abuse [here](http://www.icpsr.umich.edu/icpsrweb/ICPSR/ssvd/studies/36361/datasets/0001/variables/ABUSEALC?q=ABUSEALC). In short, both have to do with whether the respondent admitted feeling their use was out of control and the effects were no longer what they desired.
+To answer my first question (what percentage receive treatment), I took those who were recorded as having struggled with dependency or abuse in the past year. From these, I found the percentage who had received treatment. The definition of dependency in this context can be found [here](http://www.icpsr.umich.edu/icpsrweb/ICPSR/ssvd/studies/36361/datasets/0001/variables/DEPNDALC?q=DEPNDALC), and abuse [here](http://www.icpsr.umich.edu/icpsrweb/ICPSR/ssvd/studies/36361/datasets/0001/variables/ABUSEALC?q=ABUSEALC). In short, both have to do with whether the respondent admitted feeling their use was out of control and the effects were no longer what they desired.
 
 Even with this amount of self-awareness, slightly less than 17% had received treatment at the time of the survey.
 
-The next step was to look at how old the respondents were when they first received treatment. Analyzing the survival curve (how long did the person live before treatment) resulted in Figure 1 below. Approximately 50% of people who have received treatment did so by age 25, with a fairly steep dropoff in the next several years.
+The next step was to look at how old the respondents were when they first received treatment. Using the data from those who had already received treatment to produce a survival curve (how long did the person live before treatment) as well as those who reported an alcohol problem in the past year (thus still need treatment) resulted in Figure 1 through Kaplan-Meier estimation. 
+
+![Treatment SF](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/treatmentSF.png)
+
+*Figure 1: The survival function of those who need or have received treatment.
+
+Looking at only those who had received treatment, I found that approximately 50% of people who have received treatment did so by age 25, with a fairly steep dropoff in the next several years, as seen in Figure 2.
 
 ![Full SF Function](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/fullAgeTXsf.png)
 
-*Figure 1: The survival function for all those who received treatment. By age 25, half of those who reported treatment have been treated. 36% have been treated by age 21, and about 20% have been treated by age 18.*
+*Figure 2: The survival function for all those who received treatment. By age 25, half of those who reported treatment have been treated. 36% have been treated by age 21, and about 20% have been treated by age 18.*
 
 What are some things that might lead to these people finding treatment, and what might minimize the age at which it happens? Income, it turns out, is almost certainly not the answer. Dividing the respondents into those whose household income falls beneath the US Census [poverty line](http://www.irp.wisc.edu/faqs/faq1.htm), those who have an income of up to twice the poverty line, those above this, and college students, resulted in very similar curves for all groups (Figure 2).
 
 ![Divided Survival Curve](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/dividedAgeTXsf.png)
 
-*Figure 2: survival curve for different income groups. All the curves are very similar, with the exception of college students. This curve cuts off sharply at 22, as this is the upper limit for college student age.*
+*Figure 3: survival curve for different income groups. All the curves are very similar, with the exception of college students. This curve cuts off sharply at 22, as this is the upper limit for college student age.*
 
 With these curves so similar, we have to turn towards other potential causes. Using logistical regression on whether or not someone has received treatment while controlling for respondent age, race, income, and gender, I examined what effect whether someone had driven under intoxication had. I found a pseudo R^2 value of 0.04 and a coefficient of 0.85, suggesting that those who have driven while intoxicated are more likely to receive treatment. Comparing this to the pseudo R^2 value and coefficient for income, (0.00017 and -0.0269 respectively, with the negative coefficient suggesting lower income families are more likely to receive treatment), intoxicated driving does seem to have more effect. Figure 3 shows how that reflects in the ages of treatment.
 
 ![DUI Survival Curve](https://github.com/KaitlynKeil/ThinkStats2/blob/master/code/reports/duiAgeTXsf.png)
 
-*Figure 3: survival curve comparing those who have driven under intoxication with those who haven't. The curves continue to follow similar patterns, but the intoxicated drivers do have a lower survival curve in general.*
+*Figure 4: survival curve comparing those who have driven under intoxication with those who haven't. The curves continue to follow similar patterns, but the intoxicated drivers do have a lower survival curve in general.*
 
 The age at which someone started drinking alcohol also may have some sort of effect on whether they have received treatment, which makes sense for the tendency towards low treatment ages. The pseudo R^2 value is approximately 0.07, and the coefficient is -0.18. While this isn't particularly steep, it does suggest some influence.
 
